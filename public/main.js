@@ -18,4 +18,6 @@ $(document).ready(function () {
     socket.emit('message', message)
     input.val('')
   })
+  //  get broadcast from server when others send data
+  socket.on('message', addMessage)
 })

@@ -15,7 +15,7 @@ io.on('connection', function (socket) {
     // print out received data
     console.log('Received message: ', message)
     // broadcast to users
-    socket.broadcat.emit('message', message)
+    socket.broadcast.emit('message', message)
   })
 })
 
