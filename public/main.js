@@ -1,4 +1,6 @@
 $(document).ready(function () {
+  //  connect to server
+  var socket = io()
   var input = $('input')
   var messages = $('#messages')
 
@@ -13,6 +15,7 @@ $(document).ready(function () {
 
     var message = input.val()
     addMessage(message)
+    socket.emit('message', message)
     input.val('')
   })
 })
