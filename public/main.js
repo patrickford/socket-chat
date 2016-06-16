@@ -11,7 +11,7 @@ $(document).ready(function () {
   }
 
   var countUsers = function (count) {
-    users_count.html('<p> Users online: <span class="badge">' + count + '</span></p>')
+    users_count.html('<h3>Users online:&nbsp; <span class="badge">' + count + '</span></h3>')
   }
 
   chat.on('keydown', function (event) {
