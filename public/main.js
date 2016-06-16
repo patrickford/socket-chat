@@ -1,23 +1,32 @@
 $(document).ready(function () {
   //  connect to server
   var socket = io()
-  var input = $('input')
+  var chat = $('#chat')
   var messages = $('#messages')
+  var users_count = $('#users-count')
+  var nickname = $('#nickname')
 
   var addMessage = function (message) {
     messages.append('<div>' + message + '</div>')
   }
 
-  input.on('keydown', function (event) {
+  var countUsers = function (count) {
+    users_count.html('<p> Users online: <span class="badge">' + count + '</span></p>')
+  }
+
+  chat.on('keydown', function (event) {
     if (event.keyCode !== 13) {
       return
     }
+    var user = nickname.val() === '' ? 'Anonymous' : nickname.val()
+    socket.emit('user-name', user)
 
-    var message = input.val()
+    var message = user + ': ' + chat.val()
     addMessage(message)
     socket.emit('message', message)
-    input.val('')
+    chat.val('')
   })
   //  get broadcast from server when others send data
   socket.on('message', addMessage)
+  socket.on('users_count', countUsers)
 })

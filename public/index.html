@@ -3,15 +3,46 @@
 <head>
   <meta charset="UTF-8">
   <title>Chatroom</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <script src="//code.jquery.com/jquery-2.1.0.js"></script>
 <script src="/socket.io/socket.io.js"></script>
 <script src="main.js"></script>
+<nav class="navbar navbar-inverse">
+  <div class="container">
+    <div class="navbar-header"><a href="#" class="navbar-brand">Chatroom Example</a></div>
+  </div>
+</nav>
+<div class="container">
+  <div class="template">
+    <div id="users-count"><p></p></div>
+    <div class="input-group">
+      <span class="input-group-addon">Nickname</span>
+      <input class="form-control" id="nickname" type="text" placeholder="Type in your nickname.">
+    </div>
+    <div class="input-group">
+      <span class="input-group-addon">Chat</span>
+      <input class="form-control" id="chat" type="text" placeholder="Send a message by hitting the ENTER key.">
+    </div>
+    
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Messages &nbsp;<span class="glyphicon glyphicon-comment"></span></h3>
+      </div>
+      <div class="panel-body">
+        <div id="messages" class="lead"></div>
+      </div>
+    </div>
+    
+  </div>
+  
+</div>
 
-<input type="text">
-<div id="messages"></div>
+
   
 </body>
 </html>
